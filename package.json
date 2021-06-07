@@ -1,4 +1,5 @@
 {
   "name": "leaflet.idw",
+  "version": "0.0.1",
   "main": "src/leaflet-idw.js"
 }
