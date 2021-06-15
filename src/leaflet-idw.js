@@ -339,13 +339,40 @@
         len2,
         k;
 
+      let minX = 0;
+      let minY = 0;
+      let maxX = nCellX;
+      let maxY = nCellY;
+
+      if (this.options.bounds) {
+        const northEastPoint = this._map.latLngToContainerPoint(
+          this.options.bounds._northEast
+        );
+        const southWestPoint = this._map.latLngToContainerPoint(
+          this.options.bounds._southWest
+        );
+        console.log(northEastPoint, southWestPoint);
+        if (Math.ceil(southWestPoint.x / r) - 1 > 0) {
+          minX = Math.ceil(southWestPoint.x / r) - 1;
+        }
+        if (Math.ceil(northEastPoint.x / r) + 2 < nCellX) {
+          maxX = Math.ceil(northEastPoint.x / r) + 2;
+        }
+        if (Math.ceil(northEastPoint.y / r) - 1 > 0) {
+          minY = Math.ceil(northEastPoint.y / r) - 1;
+        }
+        if (Math.ceil(southWestPoint.y / r) + 2 < nCellY) {
+          maxY = Math.ceil(southWestPoint.y / r) + 2;
+        }
+      }
+
       /* console.log(nCellX);
       console.log(nCellY); */
 
       console.time("process");
 
-      for (i = 0, len = nCellY; i < len; i++) {
-        for (j = 0, len2 = nCellX; j < len2; j++) {
+      for (i = minY, len = maxY; i < len; i++) {
+        for (j = minX, len2 = maxX; j < len2; j++) {
           var x = i * r,
             y = j * r;
           var numerator = 0,

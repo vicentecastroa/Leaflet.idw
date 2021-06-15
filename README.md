@@ -46,6 +46,7 @@ Constructs an IDW layer given an array of points and an object with the followin
     gradient - color gradient config, e.g. {0.4: 'blue', 0.65: 'lime', 1: 'red'}
     discrete - whether to use a discrete color scale, false by default
     discreteGradient - discrete rgb color gradient config, e.g. [[69, 117, 180],[116, 173, 209],[171, 217, 233]]
+    bounds - latLngBounds to limit layer zone, null by default
 
 Each point in the input array can be either an array like [50.5, 30.5, 0.5], or a Leaflet LatLng object.
 
