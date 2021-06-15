@@ -351,7 +351,6 @@
         const southWestPoint = this._map.latLngToContainerPoint(
           this.options.bounds._southWest
         );
-        console.log(northEastPoint, southWestPoint);
         if (Math.ceil(southWestPoint.x / r) - 1 > 0) {
           minX = Math.ceil(southWestPoint.x / r) - 1;
         }
