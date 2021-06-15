@@ -159,7 +159,7 @@
           pixels[i] = color[0];
           pixels[i + 1] = color[1];
           pixels[i + 2] = color[2];
-          pixels[i + 3] = opacity * 256;
+          pixels[i + 3] = j > 0 ? opacity * 256 : 0;
           continue;
         } else {
           pixels[i] = gradient[j];
